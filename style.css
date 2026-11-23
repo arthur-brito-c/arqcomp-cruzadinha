@@ -1,0 +1,393 @@
+/* ============ Identidade visual: indie, colorida e divertida ============ */
+:root {
+  --papel: #fff4dc;
+  --tinta: #1d1b2b;
+  --tomate: #ff5a43;
+  --mostarda: #ffc531;
+  --menta: #5fd6a4;
+  --lilas: #b9a4ff;
+  --ceu: #7cc7ff;
+  --rosa: #ff9ec7;
+  --corpo: "Bricolage Grotesque", "Trebuchet MS", system-ui, sans-serif;
+  --mao: "Caveat", "Comic Sans MS", "Segoe Print", cursive;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  padding: 24px 16px 56px;
+  font-family: var(--corpo);
+  color: var(--tinta);
+  background-color: var(--papel);
+  /* papel pontilhado */
+  background-image: radial-gradient(rgba(29, 27, 43, 0.14) 1.5px, transparent 1.5px);
+  background-size: 24px 24px;
+}
+
+/* ---------- Rabiscos do fundo ---------- */
+.doodles { position: fixed; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; }
+.doodle { position: absolute; }
+.anel {
+  top: 90px; left: 4%; width: 72px; height: 72px;
+  border: 6px solid var(--tomate); border-radius: 50%;
+  animation: flutua 9s ease-in-out infinite;
+}
+.estrela {
+  top: 150px; right: 5%; width: 70px; height: 70px; background: var(--mostarda);
+  clip-path: polygon(50% 0, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+  animation: gira 16s linear infinite;
+}
+.triangulo {
+  bottom: 12%; left: 3%; width: 70px; height: 62px; background: var(--menta);
+  clip-path: polygon(50% 0, 100% 100%, 0 100%);
+  animation: flutua 11s ease-in-out infinite reverse;
+}
+.rabisco {
+  bottom: 9%; right: 6%; width: 130px;
+  fill: none; stroke: var(--lilas); stroke-width: 6; stroke-linecap: round;
+  animation: flutua 12s ease-in-out infinite;
+}
+
+/* ---------- Cabeçalho ---------- */
+header { max-width: 820px; margin: 0 auto 30px; text-align: center; }
+
+.titulo-area { display: flex; justify-content: center; align-items: center; gap: 22px; flex-wrap: wrap; }
+
+.etiqueta {
+  display: inline-block;
+  margin: 0 0 6px;
+  font-family: var(--mao);
+  font-size: 1.5rem;
+  color: var(--tomate);
+  transform: rotate(-2deg);
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(2.2rem, 7vw, 3.8rem);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+}
+h1 span {
+  display: inline-block;
+  padding: 0 0.2em;
+  color: #fff;
+  background: var(--tomate);
+  border: 3px solid var(--tinta);
+  border-radius: 12px;
+  box-shadow: 5px 5px 0 var(--tinta);
+  transform: rotate(-2.5deg);
+  animation: balanca 3s ease-in-out infinite;
+}
+
+.instrucao { margin: 14px auto 0; max-width: 560px; font-size: 1rem; line-height: 1.45; }
+
+h2 {
+  margin: 26px 0 10px;
+  font-family: var(--mao);
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--tomate);
+}
+h2::after { content: " \2193"; }
+
+main { display: flex; flex-wrap: wrap; gap: 32px; justify-content: center; align-items: flex-start; }
+
+/* ---------- Mascote ---------- */
+.mascote { width: 112px; height: 112px; overflow: visible; animation: pula 2.2s ease-in-out infinite; }
+.mascote .corpo { fill: var(--mostarda); stroke: var(--tinta); stroke-width: 4; }
+.mascote .pernas rect { fill: var(--tinta); }
+.mascote .olho { fill: #fff; stroke: var(--tinta); stroke-width: 3; }
+.mascote .pupilas { transform: translate(calc(var(--px, 0) * 4px), calc(var(--py, 0) * 4px)); transition: transform 0.12s; }
+.mascote .pupilas circle { fill: var(--tinta); }
+.mascote .bochecha { fill: var(--rosa); }
+.mascote .boca { fill: none; stroke: var(--tinta); stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+.mascote .boca.feliz { fill: #fff; }
+.mascote .boca.feliz, .mascote .boca.triste { display: none; }
+/* a carinha muda conforme o jogo */
+body.erros .mascote .boca.normal { display: none; }
+body.erros .mascote .boca.triste { display: inline; }
+body.vitoria .mascote .boca.normal, body.vitoria .mascote .boca.triste { display: none; }
+body.vitoria .mascote .boca.feliz { display: inline; }
+
+/* ---------- Diagrama ---------- */
+.diagrama { flex: 1 1 460px; max-width: 640px; }
+
+.micro, .cpu, .barramentos, .memorias, .caixa {
+  position: relative;
+  padding: 14px;
+  margin-bottom: 20px;
+  background: #fffdf6;
+  border: 3px solid var(--tinta);
+  border-radius: 18px;
+  box-shadow: 5px 5px 0 var(--tinta);
+}
+
+/* O chip, com pinos de cada lado */
+.micro { padding: 20px 18px 6px; border-radius: 26px; background: #fffaf0; box-shadow: 8px 8px 0 var(--tinta); }
+.micro::before, .micro::after {
+  content: "";
+  position: absolute;
+  top: 28px;
+  bottom: 28px;
+  width: 13px;
+  background: repeating-linear-gradient(to bottom, var(--tinta) 0 9px, transparent 9px 21px);
+}
+.micro::before { left: -17px; border-radius: 5px 0 0 5px; }
+.micro::after { right: -17px; border-radius: 0 5px 5px 0; }
+
+.cpu { background: #e9e1ff; }
+.barramentos { background: #fff0b8; }
+.memorias { background: #ffe0ee; }
+.fora .caixa:nth-child(1) { background: #d7eeff; }
+.fora .caixa:nth-child(2) { background: #d4f6e8; }
+
+/* Barramentos: uma esteira listrada que anda */
+.barramentos::before {
+  content: "";
+  display: block;
+  height: 14px;
+  margin-bottom: 12px;
+  border: 2.5px solid var(--tinta);
+  border-radius: 999px;
+  background: repeating-linear-gradient(-45deg, var(--mostarda) 0 10px, #fff 10px 20px);
+  background-size: 28.28px 28.28px;
+  animation: esteira 1s linear infinite;
+}
+
+.topo { margin-bottom: 14px; }
+.grupo { display: flex; flex-wrap: wrap; gap: 14px; padding-top: 4px; }
+.legenda {
+  margin: 0 0 12px;
+  font-family: var(--mao);
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-decoration: underline wavy var(--tomate) 1.5px;
+  text-underline-offset: 5px;
+}
+
+.fora { display: flex; flex-wrap: wrap; gap: 20px; }
+.fora .caixa { flex: 1 1 200px; }
+
+.nucleos { display: flex; gap: 8px; margin-bottom: 14px; }
+.nucleos i {
+  width: 24px; height: 24px;
+  background: var(--lilas);
+  border: 2.5px solid var(--tinta);
+  border-radius: 6px;
+  animation: pula-pequeno 1.6s ease-in-out infinite;
+}
+.nucleos i:nth-child(2) { animation-delay: 0.2s; background: var(--ceu); }
+.nucleos i:nth-child(3) { animation-delay: 0.4s; background: var(--rosa); }
+.nucleos i:nth-child(4) { animation-delay: 0.6s; background: var(--menta); }
+
+/* ---------- Casas ---------- */
+.slot {
+  position: relative;
+  min-width: 120px;
+  min-height: 50px;
+  padding: 16px 14px 8px;
+  font-family: var(--corpo);
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: rgba(29, 27, 43, 0.4);
+  background: #fff;
+  border: 2.5px dashed var(--tinta);
+  border-radius: 14px 10px 15px 11px;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s, background 0.15s;
+}
+.slot:hover {
+  transform: translate(-2px, -2px) rotate(-1.5deg);
+  background: #fff8d6;
+  box-shadow: 4px 4px 0 var(--tinta);
+}
+/* O número fica numa bolinha, como um adesivo */
+.slot .n {
+  position: absolute;
+  top: -11px;
+  left: -10px;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: #fff;
+  background: var(--tinta);
+  border-radius: 50%;
+}
+.slot.cheia {
+  color: var(--tinta);
+  background: #d7eeff;
+  border-style: solid;
+  box-shadow: 3px 3px 0 var(--tinta);
+}
+.slot.selecionada { background: var(--mostarda); border-style: solid; animation: salta 0.7s ease-in-out infinite; }
+.slot.nova { animation: pop 0.35s ease-out; }
+.slot.certa { color: var(--tinta); background: #c8f5e0; border-style: solid; box-shadow: 3px 3px 0 var(--tinta); animation: pop 0.4s ease-out; }
+.slot.errada { color: var(--tinta); background: #ffd3cc; border-style: solid; box-shadow: 3px 3px 0 var(--tinta); animation: treme 0.4s ease-out; }
+.slot.certa::after, .slot.errada::after {
+  position: absolute;
+  top: -11px;
+  right: -10px;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: var(--tinta);
+  border: 2.5px solid var(--tinta);
+  border-radius: 50%;
+}
+.slot.certa::after { content: "\2713"; background: var(--menta); }
+.slot.errada::after { content: "\2715"; background: var(--tomate); color: #fff; }
+
+/* ---------- Lateral ---------- */
+.lateral { flex: 1 1 280px; max-width: 360px; }
+
+/* A pista é um post-it colado na página */
+.pista {
+  position: relative;
+  min-height: 112px;
+  padding: 22px 18px 16px;
+  font-family: var(--mao);
+  font-size: 1.45rem;
+  font-weight: 600;
+  line-height: 1.15;
+  background: #fff176;
+  border: 2.5px solid var(--tinta);
+  border-radius: 4px 4px 14px 4px;
+  box-shadow: 5px 5px 0 var(--tinta);
+  transform: rotate(-1.2deg);
+}
+.pista::before {
+  content: "";
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  width: 84px;
+  height: 24px;
+  margin-left: -42px;
+  background: rgba(255, 158, 199, 0.8);
+  border: 2px dashed rgba(29, 27, 43, 0.35);
+  transform: rotate(3deg);
+}
+.pista .texto { display: block; animation: papel 0.4s ease-out; }
+
+.banco { display: flex; flex-wrap: wrap; gap: 12px 10px; }
+.termo {
+  padding: 8px 15px;
+  font-family: var(--corpo);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--tinta);
+  border: 2.5px solid var(--tinta);
+  border-radius: 999px;
+  box-shadow: 3px 3px 0 var(--tinta);
+  cursor: grab;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+/* cada termo tem sua cor e uma inclinação própria, como adesivos */
+.cor0 { background: var(--ceu); }
+.cor1 { background: var(--rosa); }
+.cor2 { background: var(--menta); }
+.cor3 { background: var(--lilas); }
+.cor4 { background: var(--mostarda); }
+.gira0 { transform: rotate(-3deg); }
+.gira1 { transform: rotate(2deg); }
+.gira2 { transform: rotate(-1deg); }
+.gira3 { transform: rotate(3deg); }
+.termo:hover { transform: rotate(0) scale(1.1) translateY(-2px); box-shadow: 5px 5px 0 var(--tinta); }
+.termo:active { cursor: grabbing; transform: scale(0.95); box-shadow: 1px 1px 0 var(--tinta); }
+
+.controles { display: flex; gap: 14px; margin-top: 26px; flex-wrap: wrap; }
+.controles button {
+  padding: 11px 24px;
+  font-family: var(--corpo);
+  font-size: 1rem;
+  font-weight: 800;
+  color: #fff;
+  background: var(--tomate);
+  border: 3px solid var(--tinta);
+  border-radius: 12px;
+  box-shadow: 4px 4px 0 var(--tinta);
+  cursor: pointer;
+  transition: transform 0.12s, box-shadow 0.12s;
+}
+.controles button:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 var(--tinta); }
+.controles button:active { transform: translate(4px, 4px); box-shadow: 0 0 0 var(--tinta); }
+.controles button.secundario { color: var(--tinta); background: #fff; }
+
+.barra {
+  height: 20px;
+  margin-top: 24px;
+  overflow: hidden;
+  background: #fff;
+  border: 3px solid var(--tinta);
+  border-radius: 999px;
+}
+#barra-preenchida {
+  height: 100%;
+  width: 0;
+  background: repeating-linear-gradient(-45deg, var(--menta) 0 10px, #8ae9c1 10px 20px);
+  background-size: 28.28px 28.28px;
+  border-right: 3px solid var(--tinta);
+  transition: width 0.7s ease;
+  animation: esteira 1s linear infinite;
+}
+#contador { margin: 10px 0 0; font-size: 1.1rem; font-weight: 800; }
+.recado {
+  min-height: 1.6em;
+  margin: 4px 0 0;
+  font-family: var(--mao);
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--tomate);
+  transform: rotate(-1deg);
+}
+
+/* ---------- Confete ---------- */
+.confete { position: fixed; inset: 0; z-index: 50; overflow: hidden; pointer-events: none; }
+.papelzinho {
+  position: absolute;
+  top: -24px;
+  width: 11px;
+  height: 16px;
+  border: 2px solid var(--tinta);
+  border-radius: 2px;
+  animation: cai 3s linear forwards;
+}
+
+/* ---------- Vitória: o chip dá uma dançadinha ---------- */
+body.vitoria .micro { animation: danca 0.7s ease-in-out infinite; }
+
+/* ---------- Animações ---------- */
+@keyframes flutua      { 0%, 100% { transform: translate(0, 0) rotate(0); } 50% { transform: translate(30px, 24px) rotate(12deg); } }
+@keyframes gira        { to { transform: rotate(360deg); } }
+@keyframes balanca     { 0%, 100% { transform: rotate(-3deg); } 50% { transform: rotate(-1deg) scale(1.03); } }
+@keyframes pula        { 0%, 100% { transform: translateY(0) rotate(-2deg); } 50% { transform: translateY(-9px) rotate(2deg); } }
+@keyframes pula-pequeno{ 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+@keyframes esteira     { to { background-position: 28.28px 0; } }
+@keyframes pop         { 0% { transform: scale(0.8); } 60% { transform: scale(1.1); } 100% { transform: scale(1); } }
+@keyframes salta       { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-4px); } }
+@keyframes treme       { 0%, 100% { transform: translateX(0); } 20% { transform: translateX(-7px) rotate(-2deg); } 40% { transform: translateX(7px) rotate(2deg); } 60% { transform: translateX(-4px); } 80% { transform: translateX(4px); } }
+@keyframes papel       { from { opacity: 0; transform: translateY(8px) rotate(-2deg); } to { opacity: 1; transform: none; } }
+@keyframes danca       { 0%, 100% { transform: rotate(-0.8deg); } 50% { transform: rotate(0.8deg) scale(1.01); } }
+@keyframes cai         { to { transform: translateY(110vh) rotate(720deg); } }
+
+/* Em telas estreitas, os pinos do chip ficam mais curtos para não gerar rolagem lateral */
+@media (max-width: 520px) {
+  .micro::before { left: -13px; width: 10px; }
+  .micro::after { right: -13px; width: 10px; }
+}
+
+/* Quem prefere menos movimento no sistema não vê as animações */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
