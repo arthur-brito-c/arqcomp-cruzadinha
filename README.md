@@ -24,6 +24,27 @@ Acertando os 16 componentes, a tela comemora com confete.
 
 > Arrastar e soltar não funciona em telas de toque. No celular, use o clique.
 
+## Lista de Palavras e Pistas
+
+| Palavra | Pista |
+|---|---|
+| CPU | Componente central que executa as instruções dos programas. |
+| ULA | Circuito do processador que realiza somas, comparações e operações lógicas. |
+| UC | Parte da CPU que interpreta as instruções e comanda os demais componentes. |
+| Registradores | Pequenas posições de armazenamento dentro do processador, as mais rápidas de todas. |
+| RAM | Memória temporária e volátil onde ficam os códigos em execução; perde tudo ao desligar. |
+| ROM | Memória que já vem pronta de fábrica: guarda as instruções básicas e não muda. |
+| EEPROM | Guarda dados mesmo desligada e pode ser reescrita com eletricidade, mudando um dado pequeno de cada vez (byte a byte). |
+| Flash | Guarda sem energia e regrava por blocos inteiros, usada em pendrives e SSDs. |
+| Cache | Memória pequena e muito rápida que guarda dados usados com frequência, perto do processador. |
+| Memória de massa | Guarda arquivos e programas de forma permanente, em grande volume, como o HD. |
+| DMA | Mecanismo que move dados entre periféricos e memória sem ocupar o processador. |
+| Address bus | Caminho de sentido único por onde a CPU indica a posição de memória desejada. |
+| Data bus | Caminho bidirecional que transporta os valores lidos ou escritos entre os componentes. |
+| Microcontrolador | Chip único com processador, memória e portas de entrada e saída, comum em Arduino. |
+| Dual core | Processador com dois núcleos que podem executar tarefas ao mesmo tempo. |
+| Quad core | Processador com quatro núcleos de execução em um só chip. |
+
 
 ## Estrutura do projeto
 
