@@ -38,7 +38,7 @@ var pistas = {
   FLASH:            "Guarda sem energia e regrava por blocos inteiros, usada em pendrives e SSDs."
 };
 
-var textoInicial = "Passe o mouse ou clique numa casa do diagrama para ler a pista.";
+var textoInicial = "Clique numa casa do diagrama para ler a pista.";
 
 var casas = [];          // uma por casa do diagrama
 var selecionada = null;  // casa escolhida no momento
