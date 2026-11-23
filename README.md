@@ -34,10 +34,4 @@ script.js    lógica do jogo
 README.md    este arquivo
 ```
 
-## Como rodar localmente
 
-<<<<<<< HEAD
-Abra o `index.html` no navegador. Não precisa instalar nada.
-=======
-Abra o `index.html` no navegador. Não precisa instalar nada.
->>>>>>> 8181994e5ca9d7f896ff6bb9dd03658a430f8eac
