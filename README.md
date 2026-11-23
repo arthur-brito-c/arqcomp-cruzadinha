@@ -1,4 +1,4 @@
-# Monte o computador
+# Bit a Bit
 
 Jogo de navegador para treinar os termos de **Tópicos de Arquitetura Computacional**
 (disciplina de Arquitetura Computacional). Em vez de uma cruzadinha, o jogador monta
